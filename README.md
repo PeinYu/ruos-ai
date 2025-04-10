@@ -1,4 +1,4 @@
-#Ruos-AI 
+# Ruos-AI 
 
 一个可视化智能工作流编排应用，基于大模型的智能体工作流自动编排，一句话即可自动编排生成工作流。
 
@@ -178,14 +178,4 @@ npx cap open android
 
 构建好的APK将位于`android/app/build/outputs/apk/debug/`目录下。
 
-### 图标替换指南
-
-打包前需要准备相应平台的图标：
-
-- **Windows**: 需要准备`public/icons/icon.ico`
-- **macOS**: 需要准备`public/icons/icon.icns`
-- **Linux**: 需要准备`public/icons/icon.png`
-- **Android**: 需要替换`android/app/src/main/res/`下的各尺寸图标
-
-可以使用在线工具将SVG转换为各平台所需格式。
 
