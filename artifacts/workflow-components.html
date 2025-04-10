@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工作流组件库</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    }
+    .mockup-phone {
+      width: 375px;
+      height: 812px;
+      overflow: hidden;
+    }
+    .mockup-tablet {
+      width: 834px;
+      height: 1194px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="flex flex-wrap justify-center gap-8">
+    <!-- 手机端 组件库页面 -->
+    <div class="mockup-phone rounded-3xl bg-gray-800 p-2 shadow-xl">
+      <div class="bg-white rounded-2xl h-full flex flex-col overflow-hidden">
+        <!-- 顶部导航 -->
+        <header class="glass rounded-t-2xl p-4 flex justify-between items-center sticky top-0 z-10">
+          <div class="flex items-center gap-2">
+            <img src="https://unpkg.com/lucide-static@latest/icons/arrow-left.svg" class="w-6 h-6" alt="返回">
+            <h1 class="text-lg font-semibold text-gray-800">组件库</h1>
+          </div>
+          <div class="flex gap-3">
+            <button class="rounded-full p-2 hover:bg-gray-100">
+              <img src="https://unpkg.com/lucide-static@latest/icons/search.svg" class="w-5 h-5" alt="搜索">
+            </button>
+            <button class="rounded-full p-2 hover:bg-gray-100">
+              <img src="https://unpkg.com/lucide-static@latest/icons/info.svg" class="w-5 h-5" alt="信息">
+            </button>
+          </div>
+        </header>
+        
+        <!-- 组件分类列表 -->
+        <div class="flex-1 overflow-y-auto bg-gray-50">
+          <!-- 基础节点 -->
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/box.svg" class="w-5 h-5 text-blue-600" alt="基础">
+                </div>
+                <h2 class="font-medium">基础节点</h2>
+              </div>
+              <button class="p-1 rounded-md hover:bg-gray-100">
+                <img src="https://unpkg.com/lucide-static@latest/icons/chevron-down.svg" class="w-5 h-5" alt="展开">
+              </button>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/activity.svg" class="w-5 h-5 text-blue-600" alt="触发器">
+                </div>
+                <span class="text-xs">触发器</span>
+              </div>
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/filter.svg" class="w-5 h-5 text-blue-600" alt="过滤器">
+                </div>
+                <span class="text-xs">过滤器</span>
+              </div>
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/code.svg" class="w-5 h-5 text-blue-600" alt="代码">
+                </div>
+                <span class="text-xs">代码</span>
+              </div>
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/function-square.svg" class="w-5 h-5 text-blue-600" alt="函数">
+                </div>
+                <span class="text-xs">函数</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 处理数据节点 -->
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/file-cog.svg" class="w-5 h-5 text-green-600" alt="处理">
+                </div>
+                <h2 class="font-medium">处理数据节点</h2>
+              </div>
+              <button class="p-1 rounded-md hover:bg-gray-100">
+                <img src="https://unpkg.com/lucide-static@latest/icons/chevron-down.svg" class="w-5 h-5" alt="展开">
+              </button>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/filter.svg" class="w-5 h-5 text-green-600" alt="过滤">
+                </div>
+                <span class="text-xs">数据过滤</span>
+              </div>
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/move.svg" class="w-5 h-5 text-green-600" alt="转换">
+                </div>
+                <span class="text-xs">数据转换</span>
+              </div>
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/combine.svg" class="w-5 h-5 text-green-600" alt="合并">
+                </div>
+                <span class="text-xs">数据合并</span>
+              </div>
+              <div class="bg-white p-3 rounded-lg shadow-sm flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center mb-2">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/split.svg" class="w-5 h-5 text-green-600" alt="分割">
+                </div>
+                <span class="text-xs">数据分割</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 数据输入节点 -->
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/file-input.svg" class="w-5 h-5 text-purple-600" alt="输入">
+                </div>
+                <h2 class="font-medium">数据输入节点</h2>
+              </div>
+              <button class="p-1 rounded-md hover:bg-gray-100">
+                <img src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" class="w-5 h-5" alt="收起">
+              </button>
+            </div>
+          </div>
+          
+          <!-- 数据输出节点 -->
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-yellow-100 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/file-output.svg" class="w-5 h-5 text-yellow-600" alt="输出">
+                </div>
+                <h2 class="font-medium">数据输出节点</h2>
+              </div>
+              <button class="p-1 rounded-md hover:bg-gray-100">
+                <img src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" class="w-5 h-5" alt="收起">
+              </button>
+            </div>
+          </div>
+          
+          <!-- 控制流节点 -->
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/git-branch.svg" class="w-5 h-5 text-orange-600" alt="控制">
+                </div>
+                <h2 class="font-medium">控制流节点</h2>
+              </div>
+              <button class="p-1 rounded-md hover:bg-gray-100">
+                <img src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" class="w-5 h-5" alt="收起">
+              </button>
+            </div>
+          </div>
+          
+          <!-- 大模型节点 -->
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/brain.svg" class="w-5 h-5 text-indigo-600" alt="大模型">
+                </div>
+                <h2 class="font-medium">大模型节点</h2>
+              </div>
+              <button class="p-1 rounded-md hover:bg-gray-100">
+                <img src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" class="w-5 h-5" alt="收起">
+              </button>
+            </div>
+          </div>
+          
+          <!-- MCP工具类节点 -->
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/tool.svg" class="w-5 h-5 text-red-600" alt="工具">
+                </div>
+                <h2 class="font-medium">MCP工具类节点</h2>
+              </div>
+              <button class="p-1 rounded-md hover:bg-gray-100">
+                <img src="https://unpkg.com/lucide-static@latest/icons/chevron-right.svg" class="w-5 h-5" alt="收起">
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 底部导航 -->
+        <div class="px-2 py-3 bg-white border-t flex justify-around">
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/home.svg" class="w-5 h-5 text-gray-400" alt="首页">
+            <span class="text-xs text-gray-400 mt-1">首页</span>
+          </button>
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/workflow.svg" class="w-5 h-5 text-indigo-600" alt="工作流">
+            <span class="text-xs text-indigo-600 mt-1">工作流</span>
+          </button>
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/template.svg" class="w-5 h-5 text-gray-400" alt="模板">
+            <span class="text-xs text-gray-400 mt-1">模板</span>
+          </button>
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/user.svg" class="w-5 h-5 text-gray-400" alt="我的">
+            <span class="text-xs text-gray-400 mt-1">我的</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 平板端 组件库详情页面 -->
+    <div class="mockup-tablet rounded-3xl bg-gray-800 p-2 shadow-xl">
+      <div class="bg-white rounded-2xl h-full flex flex-col overflow-hidden">
+        <!-- 顶部导航 -->
+        <header class="glass rounded-t-2xl p-4 flex justify-between items-center sticky top-0 z-10">
+          <div class="flex items-center gap-3">
+            <img src="https://unpkg.com/lucide-static@latest/icons/arrow-left.svg" class="w-6 h-6" alt="返回">
+            <h1 class="text-xl font-semibold text-gray-800">数据处理节点</h1>
+          </div>
+          <div class="flex gap-3">
+            <button class="rounded-full p-2 hover:bg-gray-100">
+              <img src="https://unpkg.com/lucide-static@latest/icons/search.svg" class="w-5 h-5" alt="搜索">
+            </button>
+            <button class="glass px-3 py-1.5 rounded-full text-sm font-medium text-indigo-700 inline-flex items-center">
+              <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-4 h-4 mr-1" alt="新建">
+              创建自定义节点
+            </button>
+          </div>
+        </header>
+        
+        <!-- 组件列表 -->
+        <div class="flex-1 p-6 overflow-y-auto bg-gray-50">
+          <!-- 分类说明 -->
+          <div class="glass p-4 rounded-xl mb-6">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                <img src="https://unpkg.com/lucide-static@latest/icons/file-cog.svg" class="w-6 h-6 text-green-600" alt="处理">
+              </div>
+              <div>
+                <h2 class="font-medium text-lg">处理数据节点</h2>
+                <p class="text-sm text-gray-500">用于转换、过滤、合并等处理数据的节点</p>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600">处理数据节点接收输入数据，对数据进行处理后输出结果。这些节点可以被用于数据清洗、转换、过滤、聚合等多种场景。</p>
+          </div>
+          
+          <div class="grid grid-cols-3 gap-5">
+            <!-- 组件详情卡片1 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="h-14 bg-green-100 flex items-center px-4">
+                <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-3">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/filter.svg" class="w-5 h-5 text-green-600" alt="过滤">
+                </div>
+                <h3 class="font-medium">数据过滤器</h3>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-gray-600 mb-3">根据条件过滤数据集中的元素，只保留满足条件的项目。</p>
+                <div class="text-xs text-gray-500 mb-2">输入/输出</div>
+                <div class="flex justify-between mb-3">
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
+                    <span class="text-xs">任意数据</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    <span class="text-xs">过滤后数据</span>
+                  </div>
+                </div>
+                <button class="w-full py-1.5 bg-green-50 text-green-700 rounded-lg text-sm hover:bg-green-100">
+                  添加到工作流
+                </button>
+              </div>
+            </div>
+            
+            <!-- 组件详情卡片2 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="h-14 bg-green-100 flex items-center px-4">
+                <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-3">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/move.svg" class="w-5 h-5 text-green-600" alt="转换">
+                </div>
+                <h3 class="font-medium">数据转换器</h3>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-gray-600 mb-3">将数据从一种格式转换为另一种格式，如JSON转CSV、XML转JSON等。</p>
+                <div class="text-xs text-gray-500 mb-2">输入/输出</div>
+                <div class="flex justify-between mb-3">
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
+                    <span class="text-xs">源格式数据</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    <span class="text-xs">目标格式数据</span>
+                  </div>
+                </div>
+                <button class="w-full py-1.5 bg-green-50 text-green-700 rounded-lg text-sm hover:bg-green-100">
+                  添加到工作流
+                </button>
+              </div>
+            </div>
+            
+            <!-- 组件详情卡片3 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="h-14 bg-green-100 flex items-center px-4">
+                <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-3">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/combine.svg" class="w-5 h-5 text-green-600" alt="合并">
+                </div>
+                <h3 class="font-medium">数据合并器</h3>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-gray-600 mb-3">将多个数据源合并为一个，支持不同的合并策略和冲突处理。</p>
+                <div class="text-xs text-gray-500 mb-2">输入/输出</div>
+                <div class="flex justify-between mb-3">
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
+                    <span class="text-xs">多个数据源</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    <span class="text-xs">合并后数据</span>
+                  </div>
+                </div>
+                <button class="w-full py-1.5 bg-green-50 text-green-700 rounded-lg text-sm hover:bg-green-100">
+                  添加到工作流
+                </button>
+              </div>
+            </div>
+            
+            <!-- 组件详情卡片4 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="h-14 bg-green-100 flex items-center px-4">
+                <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-3">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/split.svg" class="w-5 h-5 text-green-600" alt="分割">
+                </div>
+                <h3 class="font-medium">数据分割器</h3>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-gray-600 mb-3">根据指定条件将数据分割成多个子集，适用于数据分片和分类任务。</p>
+                <div class="text-xs text-gray-500 mb-2">输入/输出</div>
+                <div class="flex justify-between mb-3">
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
+                    <span class="text-xs">源数据</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    <span class="text-xs">多个数据子集</span>
+                  </div>
+                </div>
+                <button class="w-full py-1.5 bg-green-50 text-green-700 rounded-lg text-sm hover:bg-green-100">
+                  添加到工作流
+                </button>
+              </div>
+            </div>
+            
+            <!-- 组件详情卡片5 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="h-14 bg-green-100 flex items-center px-4">
+                <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-3">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/sort.svg" class="w-5 h-5 text-green-600" alt="排序">
+                </div>
+                <h3 class="font-medium">数据排序器</h3>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-gray-600 mb-3">根据指定字段对数据进行排序，支持升序和降序以及多字段排序。</p>
+                <div class="text-xs text-gray-500 mb-2">输入/输出</div>
+                <div class="flex justify-between mb-3">
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
+                    <span class="text-xs">未排序数据</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    <span class="text-xs">排序后数据</span>
+                  </div>
+                </div>
+                <button class="w-full py-1.5 bg-green-50 text-green-700 rounded-lg text-sm hover:bg-green-100">
+                  添加到工作流
+                </button>
+              </div>
+            </div>
+            
+            <!-- 组件详情卡片6 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div class="h-14 bg-green-100 flex items-center px-4">
+                <div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center mr-3">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/workflow.svg" class="w-5 h-5 text-green-600" alt="聚合">
+                </div>
+                <h3 class="font-medium">数据聚合器</h3>
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-gray-600 mb-3">对数据集进行聚合计算，如求和、平均、计数、最大值、最小值等。</p>
+                <div class="text-xs text-gray-500 mb-2">输入/输出</div>
+                <div class="flex justify-between mb-3">
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
+                    <span class="text-xs">原始数据集</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    <span class="text-xs">聚合结果</span>
+                  </div>
+                </div>
+                <button class="w-full py-1.5 bg-green-50 text-green-700 rounded-lg text-sm hover:bg-green-100">
+                  添加到工作流
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

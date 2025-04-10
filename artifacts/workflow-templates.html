@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工作流模板库</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    }
+    .mockup-phone {
+      width: 375px;
+      height: 812px;
+      overflow: hidden;
+    }
+    .mockup-tablet {
+      width: 834px;
+      height: 1194px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="flex flex-wrap justify-center gap-8">
+    <!-- 手机端 模板库页面 -->
+    <div class="mockup-phone rounded-3xl bg-gray-800 p-2 shadow-xl">
+      <div class="bg-white rounded-2xl h-full flex flex-col overflow-hidden">
+        <!-- 顶部导航 -->
+        <header class="glass rounded-t-2xl p-4 flex justify-between items-center sticky top-0 z-10">
+          <div class="flex items-center gap-2">
+            <img src="https://unpkg.com/lucide-static@latest/icons/arrow-left.svg" class="w-6 h-6" alt="返回">
+            <h1 class="text-lg font-semibold text-gray-800">工作流模板</h1>
+          </div>
+          <div class="flex gap-3">
+            <button class="rounded-full p-2 hover:bg-gray-100">
+              <img src="https://unpkg.com/lucide-static@latest/icons/search.svg" class="w-5 h-5" alt="搜索">
+            </button>
+            <button class="rounded-full p-2 hover:bg-gray-100">
+              <img src="https://unpkg.com/lucide-static@latest/icons/filter.svg" class="w-5 h-5" alt="筛选">
+            </button>
+          </div>
+        </header>
+        
+        <!-- 分类选项卡 -->
+        <div class="px-4 py-2 border-b overflow-x-auto flex gap-2">
+          <button class="whitespace-nowrap px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
+            全部
+          </button>
+          <button class="whitespace-nowrap px-3 py-1.5 text-gray-500 rounded-full text-sm">
+            数据处理
+          </button>
+          <button class="whitespace-nowrap px-3 py-1.5 text-gray-500 rounded-full text-sm">
+            网页爬取
+          </button>
+          <button class="whitespace-nowrap px-3 py-1.5 text-gray-500 rounded-full text-sm">
+            AI生成
+          </button>
+          <button class="whitespace-nowrap px-3 py-1.5 text-gray-500 rounded-full text-sm">
+            自动化
+          </button>
+        </div>
+        
+        <!-- 模板列表 -->
+        <div class="flex-1 p-4 overflow-y-auto bg-gray-50 space-y-4">
+          <!-- 热门模板 -->
+          <div>
+            <h2 class="text-sm font-medium text-gray-700 mb-3">热门模板</h2>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="glass rounded-xl overflow-hidden">
+                <div class="h-20 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/globe.svg" class="w-10 h-10 text-white" alt="网页爬取">
+                </div>
+                <div class="p-3">
+                  <h3 class="text-xs font-medium">网页爬取</h3>
+                  <p class="text-xs text-gray-500 mt-1">抓取网页内容并提取数据</p>
+                </div>
+              </div>
+              
+              <div class="glass rounded-xl overflow-hidden">
+                <div class="h-20 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/brain.svg" class="w-10 h-10 text-white" alt="AI生成">
+                </div>
+                <div class="p-3">
+                  <h3 class="text-xs font-medium">AI内容生成</h3>
+                  <p class="text-xs text-gray-500 mt-1">使用大模型生成内容</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 最近使用 -->
+          <div>
+            <h2 class="text-sm font-medium text-gray-700 mb-3">最近使用</h2>
+            <div class="space-y-3">
+              <div class="bg-white rounded-xl p-3 shadow-sm flex justify-between items-center">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/file-json.svg" class="w-5 h-5 text-blue-600" alt="数据转换">
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-medium">数据格式转换</h3>
+                    <p class="text-xs text-gray-500">CSV转JSON处理流程</p>
+                  </div>
+                </div>
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/more-horizontal.svg" class="w-4 h-4" alt="更多">
+                </button>
+              </div>
+              
+              <div class="bg-white rounded-xl p-3 shadow-sm flex justify-between items-center">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center mr-3">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/message-square.svg" class="w-5 h-5 text-green-600" alt="AI聊天">
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-medium">AI客服回复</h3>
+                    <p class="text-xs text-gray-500">自动回复客户问题</p>
+                  </div>
+                </div>
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/more-horizontal.svg" class="w-4 h-4" alt="更多">
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 推荐模板 -->
+          <div>
+            <h2 class="text-sm font-medium text-gray-700 mb-3">为你推荐</h2>
+            <div class="space-y-3">
+              <div class="bg-white rounded-xl p-3 shadow-sm flex justify-between items-center">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-lg bg-yellow-100 flex items-center justify-center mr-3">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/image.svg" class="w-5 h-5 text-yellow-600" alt="图像处理">
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-medium">批量图像处理</h3>
+                    <p class="text-xs text-gray-500">自动调整图像大小和格式</p>
+                  </div>
+                </div>
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-4 h-4" alt="添加">
+                </button>
+              </div>
+              
+              <div class="bg-white rounded-xl p-3 shadow-sm flex justify-between items-center">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center mr-3">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/bell.svg" class="w-5 h-5 text-red-600" alt="通知">
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-medium">数据监控通知</h3>
+                    <p class="text-xs text-gray-500">异常数据实时通知</p>
+                  </div>
+                </div>
+                <button class="p-2 rounded-full hover:bg-gray-100">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-4 h-4" alt="添加">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 底部导航 -->
+        <div class="px-2 py-3 bg-white border-t flex justify-around">
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/home.svg" class="w-5 h-5 text-gray-400" alt="首页">
+            <span class="text-xs text-gray-400 mt-1">首页</span>
+          </button>
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/workflow.svg" class="w-5 h-5 text-gray-400" alt="工作流">
+            <span class="text-xs text-gray-400 mt-1">工作流</span>
+          </button>
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/template.svg" class="w-5 h-5 text-indigo-600" alt="模板">
+            <span class="text-xs text-indigo-600 mt-1">模板</span>
+          </button>
+          <button class="p-2 flex flex-col items-center">
+            <img src="https://unpkg.com/lucide-static@latest/icons/user.svg" class="w-5 h-5 text-gray-400" alt="我的">
+            <span class="text-xs text-gray-400 mt-1">我的</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 平板端 模板库页面 -->
+    <div class="mockup-tablet rounded-3xl bg-gray-800 p-2 shadow-xl">
+      <div class="bg-white rounded-2xl h-full flex flex-col overflow-hidden">
+        <!-- 顶部导航 -->
+        <header class="glass rounded-t-2xl p-4 flex justify-between items-center sticky top-0 z-10">
+          <div class="flex items-center gap-3">
+            <img src="https://unpkg.com/lucide-static@latest/icons/menu.svg" class="w-6 h-6" alt="菜单">
+            <h1 class="text-xl font-semibold text-gray-800">工作流模板库</h1>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <input type="text" placeholder="搜索模板..." class="pl-10 pr-4 py-2 bg-gray-100 rounded-full text-sm w-64 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+              <img src="https://unpkg.com/lucide-static@latest/icons/search.svg" class="w-5 h-5 text-gray-400 absolute left-3 top-2" alt="搜索">
+            </div>
+            <button class="rounded-full p-2 hover:bg-gray-100">
+              <img src="https://unpkg.com/lucide-static@latest/icons/filter.svg" class="w-5 h-5" alt="筛选">
+            </button>
+            <button class="glass px-3 py-1.5 rounded-full text-sm font-medium text-indigo-700 inline-flex items-center">
+              <img src="https://unpkg.com/lucide-static@latest/icons/plus.svg" class="w-4 h-4 mr-1" alt="新建">
+              新建模板
+            </button>
+          </div>
+        </header>
+        
+        <!-- 分类选项卡 -->
+        <div class="px-6 py-2 border-b flex gap-6">
+          <button class="whitespace-nowrap px-4 py-2 text-indigo-600 border-b-2 border-indigo-600 font-medium">
+            全部模板
+          </button>
+          <button class="whitespace-nowrap px-4 py-2 text-gray-500">
+            我的收藏
+          </button>
+          <button class="whitespace-nowrap px-4 py-2 text-gray-500">
+            最近使用
+          </button>
+          <button class="whitespace-nowrap px-4 py-2 text-gray-500">
+            官方模板
+          </button>
+          <button class="whitespace-nowrap px-4 py-2 text-gray-500">
+            社区分享
+          </button>
+        </div>
+        
+        <!-- 模板内容 -->
+        <div class="flex-1 p-6 overflow-y-auto bg-gray-50">
+          <!-- 分类筛选 -->
+          <div class="mb-6 flex gap-3 flex-wrap">
+            <button class="px-3 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
+              全部
+            </button>
+            <button class="px-3 py-1.5 border border-gray-200 bg-white text-gray-700 rounded-full text-sm">
+              数据处理
+            </button>
+            <button class="px-3 py-1.5 border border-gray-200 bg-white text-gray-700 rounded-full text-sm">
+              网页爬取
+            </button>
+            <button class="px-3 py-1.5 border border-gray-200 bg-white text-gray-700 rounded-full text-sm">
+              AI生成
+            </button>
+            <button class="px-3 py-1.5 border border-gray-200 bg-white text-gray-700 rounded-full text-sm">
+              自动化
+            </button>
+            <button class="px-3 py-1.5 border border-gray-200 bg-white text-gray-700 rounded-full text-sm">
+              数据分析
+            </button>
+            <button class="px-3 py-1.5 border border-gray-200 bg-white text-gray-700 rounded-full text-sm">
+              内容管理
+            </button>
+          </div>
+          
+          <!-- 热门模板 -->
+          <h2 class="text-lg font-medium text-gray-800 mb-4">热门模板</h2>
+          <div class="grid grid-cols-3 gap-5 mb-8">
+            <!-- 模板卡片1 -->
+            <div class="glass rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+              <div class="h-32 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center relative">
+                <img src="https://unpkg.com/lucide-static@latest/icons/globe.svg" class="w-16 h-16 text-white" alt="网页爬取">
+                <button class="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 hover:bg-white/40">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/heart.svg" class="w-4 h-4 text-white" alt="收藏">
+                </button>
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-base font-medium">网页爬取工作流</h3>
+                  <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs">热门</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-3">从指定网站抓取内容并提取结构化数据</p>
+                <div class="flex justify-between items-center">
+                  <div class="flex items-center">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/users.svg" class="w-4 h-4 text-gray-400 mr-1" alt="用户">
+                    <span class="text-xs text-gray-500">2,345 次使用</span>
+                  </div>
+                  <button class="px-3 py-1 rounded-full text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100">
+                    使用
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 模板卡片2 -->
+            <div class="glass rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+              <div class="h-32 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center relative">
+                <img src="https://unpkg.com/lucide-static@latest/icons/brain.svg" class="w-16 h-16 text-white" alt="AI生成">
+                <button class="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 hover:bg-white/40">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/heart.svg" class="w-4 h-4 text-white" alt="收藏">
+                </button>
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-base font-medium">AI内容生成器</h3>
+                  <span class="px-2 py-0.5 bg-purple-100 text-purple-700 rounded text-xs">推荐</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-3">使用大模型自动生成各类型内容</p>
+                <div class="flex justify-between items-center">
+                  <div class="flex items-center">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/users.svg" class="w-4 h-4 text-gray-400 mr-1" alt="用户">
+                    <span class="text-xs text-gray-500">1,892 次使用</span>
+                  </div>
+                  <button class="px-3 py-1 rounded-full text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100">
+                    使用
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 模板卡片3 -->
+            <div class="glass rounded-xl overflow-hidden hover:shadow-md transition-shadow">
+              <div class="h-32 bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center relative">
+                <img src="https://unpkg.com/lucide-static@latest/icons/file-json.svg" class="w-16 h-16 text-white" alt="数据转换">
+                <button class="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 hover:bg-white/40">
+                  <img src="https://unpkg.com/lucide-static@latest/icons/heart.svg" class="w-4 h-4 text-white" alt="收藏">
+                </button>
+              </div>
+              <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                  <h3 class="text-base font-medium">数据格式转换</h3>
+                  <span class="px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded text-xs">简单</span>
+                </div>
+                <p class="text-sm text-gray-500 mb-3">在多种数据格式间无缝转换</p>
+                <div class="flex justify-between items-center">
+                  <div class="flex items-center">
+                    <img src="https://unpkg.com/lucide-static@latest/icons/users.svg" class="w-4 h-4 text-gray-400 mr-1" alt="用户">
+                    <span class="text-xs text-gray-500">1,565 次使用</span>
+                  </div>
+                  <button class="px-3 py-1 rounded-full text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100">
+                    使用
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 最近添加 -->
+          <h2 class="text-lg font-medium text-gray-800 mb-4">最近添加</h2>
+          <div class="grid grid-cols-4 gap-4">
+            <!-- 简化模板卡片1 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+              <div class="h-24 bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center">
+                <img src="https://unpkg.com/lucide-static@latest/icons/image.svg" class="w-12 h-12 text-white" alt="图像处理">
+              </div>
+              <div class="p-3">
+                <h3 class="text-sm font-medium mb-1">批量图像处理</h3>
+                <p class="text-xs text-gray-500">调整、转换和优化图像</p>
+                <button class="mt-2 w-full px-3 py-1 rounded-full text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100">
+                  使用
+                </button>
+              </div>
+            </div>
+            
+            <!-- 简化模板卡片2 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+              <div class="h-24 bg-gradient-to-r from-red-400 to-red-600 flex items-center justify-center">
+                <img src="https://unpkg.com/lucide-static@latest/icons/bell.svg" class="w-12 h-12 text-white" alt="通知">
+              </div>
+              <div class="p-3">
+                <h3 class="text-sm font-medium mb-1">数据监控通知</h3>
+                <p class="text-xs text-gray-500">异常数据实时提醒</p>
+                <button class="mt-2 w-full px-3 py-1 rounded-full text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100">
+                  使用
+                </button>
+              </div>
+            </div>
+            
+            <!-- 简化模板卡片3 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+              <div class="h-24 bg-gradient-to-r from-blue-400 to-cyan-500 flex items-center justify-center">
+                <img src="https://unpkg.com/lucide-static@latest/icons/message-square.svg" class="w-12 h-12 text-white" alt="客服">
+              </div>
+              <div class="p-3">
+                <h3 class="text-sm font-medium mb-1">AI客服回复</h3>
+                <p class="text-xs text-gray-500">智能回复客户问题</p>
+                <button class="mt-2 w-full px-3 py-1 rounded-full text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100">
+                  使用
+                </button>
+              </div>
+            </div>
+            
+            <!-- 简化模板卡片4 -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+              <div class="h-24 bg-gradient-to-r from-indigo-400 to-blue-500 flex items-center justify-center">
+                <img src="https://unpkg.com/lucide-static@latest/icons/calendar.svg" class="w-12 h-12 text-white" alt="日程">
+              </div>
+              <div class="p-3">
+                <h3 class="text-sm font-medium mb-1">自动日程规划</h3>
+                <p class="text-xs text-gray-500">智能安排日程任务</p>
+                <button class="mt-2 w-full px-3 py-1 rounded-full text-xs text-indigo-700 bg-indigo-50 hover:bg-indigo-100">
+                  使用
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

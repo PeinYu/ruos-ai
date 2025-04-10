@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/25 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  
+  .node {
+    @apply bg-white p-4 rounded-lg shadow-md border border-gray-200 cursor-move;
+  }
+  
+  .workflow-line {
+    @apply absolute h-0.5 bg-primary-500 transform-gpu z-0;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors 
+           focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary-500 disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
+  }
+  
+  .input {
+    @apply flex h-9 w-full rounded-md border border-gray-300 bg-white px-3 py-1 
+           text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium 
+           placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-1 
+           focus-visible:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+}
