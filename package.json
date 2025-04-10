@@ -44,7 +44,7 @@
     "vue-tsc": "^2.0.26"
   },
   "build": {
-    "appId": "com.ruosai.app",
+    "appId": "ai.ruos.app",
     "productName": "RuosAI智能工作流助手",
     "directories": {
       "output": "dist_electron"

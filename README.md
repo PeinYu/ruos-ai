@@ -126,6 +126,13 @@ ruos-ai/
 ### 聊天工作流页面
 ![聊天工作流](./artifacts/Snipaste_2025-04-10_21-58-29.png)
 
+
+## 联系方式
+
+| 微信公众号 | 微信号 |
+| :-: | :-: |
+| ![联系方式](./artifacts/94fa8a9dec4d2d9818b82f114c15ebc.jpg) | ![WECHAT](./artifacts/06c75bccda60f8fc488d6da60163911.jpg) |
+
 ## 应用打包
 
 ### Windows/macOS/Linux 桌面应用（Electron）
