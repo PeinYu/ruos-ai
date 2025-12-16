@@ -133,6 +133,9 @@ debug/
 
 # docs目录下的临时文件和构建产物
 /docs/*.*
-/scripts/*.*
+# scripts目录 - 开发工具和脚本文件
+/scripts/
+/scripts/*
+!/scripts/README.md
 # 自定义忽略
 # 添加您不想提交的其他文件或目录
