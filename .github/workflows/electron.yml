@@ -50,15 +50,27 @@ jobs:
       
     - name: Build web application
       run: pnpm run electron:build
+    
+    - name: Check icon files
+      run: |
+        if [ ! -f "public/icons/icon.ico" ]; then
+          echo "Warning: Windows icon file missing"
+        fi
+        if [ ! -f "public/icons/icon.icns" ]; then
+          echo "Warning: macOS icon file missing"
+        fi
+        if [ ! -f "public/icons/icon.png" ]; then
+          echo "Warning: Linux icon file missing"
+        fi
       
     - name: Build Electron app
       run: |
         if [ "${{ matrix.os-name }}" = "win" ]; then
-          npm run build:win
+          pnpm run build:win
         elif [ "${{ matrix.os-name }}" = "mac" ]; then
-          npm run build:mac
+          pnpm run build:mac
         else
-          npm run build:linux
+          pnpm run build:linux
         fi
         
     - name: Upload Electron artifacts

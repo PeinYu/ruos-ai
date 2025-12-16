@@ -41,14 +41,18 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+      
     - name: Sync to Android
-      run: capacitor sync android
+      run: |
+        npx cap sync android
+        chmod +x android/gradlew
       
     - name: Build Android APK (Debug)
       run: |
         cd android
-        chmod +x ./gradlew
-        ./gradlew assembleDebug
+        ./gradlew assembleDebug --no-daemon
         
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
@@ -70,7 +74,7 @@ jobs:
           echo "$KEYSTORE_BASE64" | base64 --decode > ruosai.keystore
           cd android
           chmod +x ./gradlew
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease --no-daemon
         else
           echo "Keystore not found in secrets, skipping release build"
         fi
