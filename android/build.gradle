@@ -17,6 +17,16 @@ buildscript {
 
 apply from: "variables.gradle"
 
+// Set AndroidX properties globally before any project evaluation
+gradle.projectsEvaluated {
+    allprojects {
+        project.ext {
+            android.useAndroidX = true
+            android.enableJetifier = true
+        }
+    }
+}
+
 allprojects {
     repositories {
         google()
