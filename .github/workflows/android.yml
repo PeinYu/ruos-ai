@@ -69,7 +69,13 @@ jobs:
     - name: Build Android APK (Debug)
       run: |
         cd android
-        ./gradlew assembleDebug --no-daemon
+        # Ensure AndroidX properties are set
+        echo "android.useAndroidX=true" >> gradle.properties
+        echo "android.enableJetifier=true" >> gradle.properties
+        echo "org.gradle.jvmargs=-Xmx2048m" >> gradle.properties
+        echo "org.gradle.parallel=true" >> gradle.properties
+        echo "org.gradle.caching=true" >> gradle.properties
+        ./gradlew assembleDebug --no-daemon --stacktrace
         
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
@@ -90,8 +96,14 @@ jobs:
           echo "Building signed release APK..."
           echo "$KEYSTORE_BASE64" | base64 --decode > ruosai.keystore
           cd android
+          # Ensure AndroidX properties are set
+          echo "android.useAndroidX=true" >> gradle.properties
+          echo "android.enableJetifier=true" >> gradle.properties
+          echo "org.gradle.jvmargs=-Xmx2048m" >> gradle.properties
+          echo "org.gradle.parallel=true" >> gradle.properties
+          echo "org.gradle.caching=true" >> gradle.properties
           chmod +x ./gradlew
-          ./gradlew assembleRelease --no-daemon
+          ./gradlew assembleRelease --no-daemon --stacktrace
         else
           echo "Keystore not found in secrets, skipping release build"
         fi
