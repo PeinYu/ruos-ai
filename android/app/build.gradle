@@ -1,11 +1,5 @@
 apply plugin: 'com.android.application'
 
-// Set AndroidX properties at project level
-project.ext {
-    android.useAndroidX = true
-    android.enableJetifier = true
-}
-
 android {
     namespace "ai.ruos.app"
     compileSdkVersion rootProject.ext.compileSdkVersion
