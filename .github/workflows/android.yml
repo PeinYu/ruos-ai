@@ -1,0 +1,81 @@
+name: Android Build
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'capacitor.config.ts'
+      - 'vite.config.ts'
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18' # 使用LTS版本
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build web application
+      run: npm run build
+      
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Sync to Android
+      run: capacitor sync android
+      
+    - name: Build Android APK (Debug)
+      run: |
+        cd android
+        chmod +x ./gradlew
+        ./gradlew assembleDebug
+        
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ruosai-android-apk
+        path: android/app/build/outputs/apk/debug/app-debug.apk
+        retention-days: 7
+        
+    - name: Build Android APK (Release - with signing)
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      env:
+        KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+        KEYSTORE_ALIAS_PASSWORD: ${{ secrets.KEYSTORE_ALIAS_PASSWORD }}
+      run: |
+        if [ -n "$KEYSTORE_BASE64" ]; then
+          echo "Building signed release APK..."
+          echo "$KEYSTORE_BASE64" | base64 --decode > ruosai.keystore
+          cd android
+          chmod +x ./gradlew
+          ./gradlew assembleRelease
+        else
+          echo "Keystore not found in secrets, skipping release build"
+        fi
+        
+    - name: Upload Release APK artifact
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' && env.KEYSTORE_BASE64 != ''
+      uses: actions/upload-artifact@v4
+      with:
+        name: ruosai-android-release-apk
+        path: android/app/build/outputs/apk/release/app-release.apk
+        retention-days: 30

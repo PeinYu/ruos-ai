@@ -1,0 +1,90 @@
+name: Electron Build
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'electron/**'
+      - 'vite.config.ts'
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: # 允许手动触发
+  release:
+    types: [created] # 发布新版本时触发
+
+jobs:
+  build-electron:
+    strategy:
+      matrix:
+        platform: [windows-latest, macos-latest, ubuntu-latest]
+        include:
+          - platform: windows-latest
+            os-name: win
+            artifact-name: ruosai-windows
+          - platform: macos-latest
+            os-name: mac
+            artifact-name: ruosai-macos
+          - platform: ubuntu-latest
+            os-name: linux
+            artifact-name: ruosai-linux
+    
+    runs-on: ${{ matrix.platform }}
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build web application
+      run: npm run electron:build
+      
+    - name: Build Electron app
+      run: |
+        if [ "${{ matrix.os-name }}" = "win" ]; then
+          npm run build:win
+        elif [ "${{ matrix.os-name }}" = "mac" ]; then
+          npm run build:mac
+        else
+          npm run build:linux
+        fi
+        
+    - name: Upload Electron artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.artifact-name }}
+        path: |
+          dist_electron/*.exe
+          dist_electron/*.dmg
+          dist_electron/*.AppImage
+          dist_electron/*.deb
+          dist_electron/*.rpm
+        retention-days: 30
+        
+  create-release:
+    needs: build-electron
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+      
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          ruosai-windows/*
+          ruosai-macos/*
+          ruosai-linux/*
+        draft: false
+        prerelease: false

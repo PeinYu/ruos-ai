@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RuosAI智能工作流助手</string>
+    <string name="title_activity_main">RuosAI智能工作流助手</string>
+    <string name="package_name">ai.ruos.app</string>
+    <string name="custom_url_scheme">ai.ruos.app</string>
+</resources>
