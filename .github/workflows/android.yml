@@ -69,6 +69,8 @@ jobs:
     - name: Build Android APK (Debug)
       run: |
         cd android
+        # Clean previous builds
+        ./gradlew clean --no-daemon
         # Ensure AndroidX properties are set
         echo "android.useAndroidX=true" >> gradle.properties
         echo "android.enableJetifier=true" >> gradle.properties
